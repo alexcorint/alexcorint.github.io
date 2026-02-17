@@ -8,19 +8,15 @@
     <meta http-equiv="refresh" content="0;url=es.html">
 
     <script>
-        // Lógica de enrutamiento simple
         (function() {
             var lang = navigator.language || navigator.userLanguage; 
             
-            // Detectar Catalán
             if (lang.startsWith('ca')) {
                 window.location.replace('ca.html');
             } 
-            // Detectar Inglés
             else if (lang.startsWith('en')) {
                 window.location.replace('en.html');
             } 
-            // Por defecto: Español
             else {
                 window.location.replace('es.html');
             }
