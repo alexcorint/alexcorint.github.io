@@ -252,3 +252,47 @@ ul { list-style: none; }
     /* Forzar salto de página limpio si es necesario antes de secciones críticas (opcional) */
     /* .force-break { page-break-before: always; } */
 }
+
+/* --- 6. LANG SELECTOR --- */
+
+.lang-selector {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: var(--spacing-md);
+}
+
+.lang-btn {
+    text-decoration: none;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.6);
+    background: rgba(255, 255, 255, 0.05);
+    padding: 5px 10px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.lang-btn span {
+    margin-right: 4px;
+    filter: grayscale(100%); /* Banderas discretas hasta el hover */
+    transition: filter 0.3s ease;
+}
+
+.lang-btn:hover, .lang-btn.active {
+    color: white;
+    background: var(--primary-accent);
+    border-color: var(--primary-accent);
+}
+
+.lang-btn:hover span {
+    filter: grayscale(0%);
+}
+
+/* OCULTAR EN EL PDF/IMPRESIÓN */
+@media print {
+    .lang-selector {
+        display: none !important;
+    }
+}
