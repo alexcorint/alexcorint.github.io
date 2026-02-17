@@ -276,7 +276,7 @@ ul { list-style: none; }
 
 .lang-btn span {
     margin-right: 4px;
-    filter: grayscale(100%); /* Banderas discretas hasta el hover */
+    filter: grayscale(100%);
     transition: filter 0.3s ease;
 }
 
@@ -290,9 +290,67 @@ ul { list-style: none; }
     filter: grayscale(0%);
 }
 
-/* OCULTAR EN EL PDF/IMPRESIÓN */
 @media print {
     .lang-selector {
+        display: none !important;
+    }
+}
+
+/* --- 7. TOOLTIP PERSONALIZADO --- */
+
+.tooltip-tag {
+    position: relative;
+    cursor: help;
+}
+
+.tooltip-tag::after {
+    content: attr(data-info);
+    position: absolute;
+    bottom: 150%;
+    left: 50%;
+    transform: translateX(-50%) scale(0.8);
+    
+
+    background-color: var(--primary-accent);
+    color: white;
+    padding: 10px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    width: 200px;
+    text-align: center;
+    line-height: 1.2;
+    
+
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: 100;
+}
+
+
+.tooltip-tag::before {
+    content: "";
+    position: absolute;
+    bottom: 130%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 8px solid transparent;
+    border-top-color: var(--primary-dark);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease;
+}
+
+.tooltip-tag:hover::after,
+.tooltip-tag:hover::before {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) scale(1);
+}
+
+@media print {
+    .tooltip-tag::after, .tooltip-tag::before {
         display: none !important;
     }
 }
