@@ -224,7 +224,7 @@ ul { list-style: none; }
 @media print {
     @page {
         margin: 0;
-        size: auto; 
+        size: A4; /* Forzamos el tamaño del papel */
     }
 
     body { 
@@ -238,19 +238,47 @@ ul { list-style: none; }
         box-shadow: none;
         width: 100%;
         min-height: auto; 
-        display: grid;
         height: auto; 
+        display: grid;
+        /* Reducimos un pelín el ancho del sidebar en impresión para dar aire al texto */
+        grid-template-columns: 240px 1fr; 
     }
 
+    /* --- COMPACTAMOS EL SIDEBAR --- */
     .sidebar {
         height: auto;
-        align-self: start;
+        align-self: start; /* Ancla el sidebar arriba */
+        padding: 20px 15px; /* Reducimos el padding (antes era 30px 25px) */
     }
 
+    .sidebar section {
+        margin-bottom: 15px; /* Reducimos el margen entre bloques (antes era 35px) */
+    }
+
+    .profile-photo {
+        margin-bottom: 15px;
+    }
+
+    .profile-photo img {
+        width: 100px; /* Reducimos la foto un poco */
+        height: 100px;
+    }
+
+    .tags span {
+        padding: 2px 6px; /* Hacemos las etiquetas un poco más finas */
+    }
+
+    /* --- AJUSTAMOS EL CONTENIDO PRINCIPAL --- */
     .main-content {
         height: auto;
+        padding: 25px 30px; /* Reducimos márgenes para que quepa más texto */
     }
 
+    .mt-xl {
+        margin-top: 25px !important; /* Reducimos el gran salto antes de Experiencia */
+    }
+
+    /* Limpieza de enlaces */
     a { text-decoration: none; color: inherit; }
 }
 
