@@ -237,20 +237,21 @@ ul { list-style: none; }
         margin: 0;
         box-shadow: none;
         width: 100%;
-        min-height: 100vh;
+        min-height: auto; 
         display: grid;
         height: auto; 
     }
 
-    .sidebar, .main-content {
-        height: 100%;
+    .sidebar {
+        height: auto;
+        align-self: start;
     }
 
-    /* Ocultar enlaces URL si lo prefieres */
+    .main-content {
+        height: auto;
+    }
+
     a { text-decoration: none; color: inherit; }
-    
-    /* Forzar salto de página limpio si es necesario antes de secciones críticas (opcional) */
-    /* .force-break { page-break-before: always; } */
 }
 
 /* --- 6. LANG SELECTOR --- */
